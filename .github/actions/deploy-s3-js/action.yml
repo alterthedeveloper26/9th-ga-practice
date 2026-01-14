@@ -1,5 +1,15 @@
 name: "Deploy to AWS S3"
 description: "Deploy a static website to AWS S3."
+inputs:
+  bucket:
+    description: "S3 bucket name"
+    required: true
+  region:
+    description: "Region of the bucket"
+    require: true
+  dist-folder:
+    description: "Path to the dist file"
+    require: true
 runs:
   using: "node16"
   # pre: pre.js
