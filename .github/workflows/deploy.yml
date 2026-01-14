@@ -11,6 +11,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Load and cache using custom action
         uses: ./.github/actions/cached-deps
+        id: workflow-use-cache
+        with:
+          cacheEnabled: "false"
+      - name: Log cache
+        run: echo '${{steps.workflow-use-cache.outputs.used-cache}}'
       - name: Lint code
         run: npm run lint
   test:
