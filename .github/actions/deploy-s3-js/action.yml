@@ -6,10 +6,13 @@ inputs:
     required: true
   region:
     description: "Region of the bucket"
-    require: true
+    required: true
   dist-folder:
     description: "Path to the dist file"
-    require: true
+    required: true
+outputs:
+  website-url:
+    description: "URL of the deployed website"
 runs:
   using: "node16"
   # pre: pre.js

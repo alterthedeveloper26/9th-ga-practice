@@ -63,6 +63,7 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy site
+        id: deploy-to-s3
         uses: ./.github/actions/deploy-s3-js
         env:
           AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY}}
@@ -71,3 +72,6 @@ jobs:
           bucket: chesara-learning-s3
           region: ap-northeast-1
           dist-folder: ./dist
+      - name: Output website url
+        run: |
+          echo "Live URL: ${{steps.deploy-to-s3.outputs.website-url}}"
